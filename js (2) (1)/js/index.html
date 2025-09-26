@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Simple Health Recognition</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- link to external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="box">
+    <h1>Health Recognition — Simple</h1>
+    <p class="small">This is a demo / educational tool. <strong>Not medical advice.</strong> If you have concerns, consult a healthcare professional.</p>
+
+    <!-- Step 1: Basic -->
+    <div id="step1" class="step active">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" class="input-name" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="age">Age</label>
+        <input id="age" type="number" class="input-age" min="1" placeholder="Years">
+      </div>
+      <div class="field">
+        <label>Gender</label>
+        <div class="radios">
+          <label><input type="radio" name="gender" value="male" checked> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="other"> Other</label>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <button class="btn" id="next1">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Body -->
+    <div id="step2" class="step">
+      <div class="field">
+        <label for="height">Height (cm)</label>
+        <input id="height" type="number" min="30" placeholder="e.g. 170">
+      </div>
+      <div class="field">
+        <label for="weight">Weight (kg)</label>
+        <input id="weight" type="number" min="1" placeholder="e.g. 65">
+      </div>
+      <div class="field">
+        <label for="bp_s">Blood Pressure (systolic / diastolic)</label>
+        <div style="display:flex; gap:8px;">
+          <input id="bp_s" type="number" min="50" placeholder="Systolic (e.g. 120)">
+          <input id="bp_d" type="number" min="30" placeholder="Diastolic (e.g. 80)">
+        </div>
+      </div>
+      <div style="text-align:right">
+        <button class="btn secondary" id="back2">Back</button>
+        <button class="btn" id="next2">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Disease -->
+    <div id="step3" class="step">
+      <div class="field">
+        <label>Do you currently have any disease / health condition?</label>
+        <div class="radios">
+          <label><input type="radio" name="hasDisease" value="yes"> Yes</label>
+          <label><input type="radio" name="hasDisease" value="no" checked> No</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="disease_text">If yes, mention (brief)</label>
+        <textarea id="disease_text" rows="2" placeholder="e.g. asthma, diabetes"></textarea>
+      </div>
+      <div style="text-align:right">
+        <button class="btn secondary" id="back3">Back</button>
+        <button class="btn" id="submitBtn">Submit</button>
+      </div>
+    </div>
+
+    <!-- Result area -->
+    <div id="resultArea" style="display:none;">
+      <div id="resultBox" class="res-box"></div>
+
+      <!-- History and controls -->
+      <div class="history">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <strong>History</strong>
+          <div>
+            <button class="btn secondary" id="clearHistory">Clear</button>
+            <button class="btn" id="showHistory">Refresh</button>
+          </div>
+        </div>
+        <div id="historyList" style="margin-top:8px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- link to external script -->
+  <script src="script.js"></script>
+</body>
+</html>
